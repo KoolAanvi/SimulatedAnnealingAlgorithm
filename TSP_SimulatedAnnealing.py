@@ -7,19 +7,19 @@ class Coordinate:
         self.y = y
 
     def get_distance(a,b):
-        return (numpy.sqrt((a.x-b.x)**2 + (a.y-b.y)**2))*100
+        return (numpy.sqrt((a.x-b.x)**2 + (a.y-b.y)**2))
         #return numpy.sqrt(numpy.abs(a.x-b.x)+numpy.abs(a.y-b.y))
 
     def get_total_distance(coords):
         dist = 0
-        for first, second in zip(coords[:1],coords[1:]):
+        for first, second in zip(coords[:-1],coords[1:]):
             dist += Coordinate.get_distance(first, second)
         dist += Coordinate.get_distance(coords[0],coords[-1])
         return dist
 
 if __name__ == '__main__':
     coords = []
-    for i in range(4): #set amount of random coordinates
+    for i in range(10): #set amount of random coordinates
         coords.append(Coordinate(numpy.random.uniform(), numpy.random.uniform()))
     
     #Plot
